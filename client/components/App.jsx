@@ -14,13 +14,13 @@ const App = () => {
   }, [])
 
   return (
-    <>
+    <main className="bg-slate-700 h-screen flex justify-center items-center text-white text-4xl">
       <ul>
         {fruits.map((fruit) => (
           <li key={fruit.id}>{fruit.name}</li>
         ))}
       </ul>
-    </>
+    </main>
   )
 }
 
