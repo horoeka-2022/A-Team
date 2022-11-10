@@ -6,6 +6,7 @@ exports.up = function (knex) {
     table.string('interests')
     table.string('filepaths')
     table.string('zodiac')
+    table.string('photo')
   })
 }
 
