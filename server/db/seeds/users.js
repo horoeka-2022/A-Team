@@ -1,7 +1,3 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
   await knex('users').del()
@@ -11,7 +7,7 @@ exports.seed = async function (knex) {
       name: 'Elonged Tusk',
       pronouns: 'bad/man',
       interests: 'rockets and ruining democracy',
-      photo: '#',
+      photo: '/images/Elon.jpg',
       zodiac: 'cancer',
     },
     {
@@ -19,7 +15,7 @@ exports.seed = async function (knex) {
       name: 'Marc Iceberg',
       pronouns: 'liz/ard',
       interests: 'virtual reality and ruining democracy',
-      photo: '#',
+      photo: '/images/Mark.jpg',
       zodiac: 'taurus',
     },
     {
@@ -27,25 +23,25 @@ exports.seed = async function (knex) {
       name: 'Nah East',
       pronouns: 'ye/sus',
       interests: 'my ex-wives partners and ruining the fashion industry',
-      photo: '#',
+      photo: '/images/kanye.jpeg',
       zodiac: 'gemini',
     },
     {
       id: 4,
-      name: 'Elizabeth Holmes',
+      name: 'Elizafraud Holmes',
       pronouns: 'li/ar',
       interests:
-        'blood and making things that really work, i promise they do, believe me, they really do',
-      photo: '#',
+        'blood and making things that really work, i promise they do, believe me, they really do.',
+      photo: '/images/Elisabeth.jpg',
       zodiac: 'aquarius',
     },
     {
       id: 5,
       name: 'Cleans',
-      pronouns: 'she/her, pronouns do not suck',
+      pronouns: 'they/them, pronouns do not suck',
       interests:
         'I love you but please turn off ur phone or give me a dall. I cannot support this hate. Please stop this. I know this is not your heart. Also giving my kid a unpronounceable name',
-      photo: '#',
+      photo: '/images/Grimes.jpg',
       zodiac: 'pisces',
     },
   ])
