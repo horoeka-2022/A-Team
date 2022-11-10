@@ -1,9 +1,16 @@
 const connection = require('./connection')
 
 module.exports = {
-  getFruits,
+  getAllUsers,
+  getUserById,
 }
 
-function getFruits(db = connection) {
-  return db('fruits').select()
+function getAllUsers(db = connection) {
+  return db('users').select()
 }
+
+function getUserById(userId, db = connection) {
+  return db('users').select().where('id', userId).first()
+}
+
+//addUser
