@@ -1,20 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from './Button'
 
-function List(props) {
-  console.log(props)
-  // return (
-  //   <>
-  //     {props.outfits.map((outfit) => (
-  //       <div key={outfit.id} className="imgDiv">
-  //         <img className="top" src={outfit.top} alt="top"></img>
-  //         <img className="bottom" src={outfit.bottom} alt="bottom"></img>
-  //         <p className="listName">{outfit.name}</p>
-  //       </div>
-  //     ))}
-  //   </>
-  // )
+function List({ users }) {
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>
+          <img src={user.photo} alt="person"></img>
+          {user.name} {user.pronouns} {user.intrests} {user.zodiac}
+        </li>
+      ))}
+    </ul>
+  )
 }
 
 export default List

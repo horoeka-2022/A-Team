@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { fetchProfiles } from '../apis/profiles'
+import { getAllUsers } from '../apis/profiles'
+import List from './List'
 
 // import Form from './Form'
 
-const App = () => {
-  const [profiles, setProfiles] = useState([])
+function App() {
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetchProfiles()
-      .then((profiles) => {
-        console.log(profiles)
-        setProfiles(() => profiles)
+    getAllUsers()
+      .then((users) => {
+        console.log(users)
+        setUsers(() => users)
       })
       .catch((err) => console.log(err.message))
   }, [])
@@ -46,6 +47,7 @@ const App = () => {
           required={true}
         />
       </div>
+      <List users={users} />
     </section>
   )
 }
