@@ -17,38 +17,49 @@ function App() {
   }, [])
 
   return (
-    <section className="formSection">
-      <div className="form">
-        <h2>Profiles!</h2>
-        <input type="text" name="name" placeholder="Name" required={true} />
-        <input
-          type="text"
-          name="pronouns"
-          placeholder="Pronouns"
-          required={true}
+    <>
+      <header>
+        <img
+          className="logo"
+          src="/images/LoveKnextion.001.png"
+          alt="Love Knextion Logo"
         />
-        <input
-          type="text"
-          name="interests"
-          placeholder="Interests"
-          required={true}
-        />
-        <input
-          type="image"
-          alt="photo"
-          name="photo"
-          placeholder="Upload Image"
-          required={true}
-        />
-        <input
-          type="text"
-          name="zodiac sign"
-          placeholder="Zodiac"
-          required={true}
-        />
-      </div>
-      <List users={users} />
-    </section>
+      </header>
+      <section className="formSection">
+        <div className="form">
+          <h2>Profiles!</h2>
+          <input type="text" name="name" placeholder="Name" required={true} />
+          <input
+            type="text"
+            name="pronouns"
+            placeholder="Pronouns"
+            required={true}
+          />
+          <input
+            type="text"
+            name="interests"
+            placeholder="Interests"
+            required={true}
+          />
+          <input
+            type="file"
+            alt="photo"
+            name="photo"
+            placeholder="Upload Image"
+            required={true}
+          />
+          <input
+            type="text"
+            name="zodiac sign"
+            placeholder="Zodiac"
+            required={true}
+          />
+        </div>
+        <div className="row">
+          <List users={users} />
+        </div>
+      </section>
+    </>
   )
 }
 
