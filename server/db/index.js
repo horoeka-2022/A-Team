@@ -3,6 +3,7 @@ const connection = require('./connection')
 module.exports = {
   getAllUsers,
   getUserById,
+  addUser,
 }
 
 function getAllUsers(db = connection) {
@@ -14,3 +15,6 @@ function getUserById(userId, db = connection) {
 }
 
 //addUser
+function addUser(newUser, db = connection) {
+  return db('users').insert(newUser)
+}
