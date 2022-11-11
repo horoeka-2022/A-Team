@@ -1,146 +1,65 @@
-// import React from 'react'
-// import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useState } from 'react'
+import { addUser, getAllUsers } from '../apis/profiles'
 
-// import Button from './Button'
+function Form({ setUsers }) {
+  const [inputUser, setInputUser] = useState({})
 
-// import profiles from '../profiles'
+  function handleChange(event) {
+    const value = event.target.value
+    const key = event.target.name
+    setInputUser((inputUser) => ({ ...inputUser, [key]: value }))
+  }
 
-// function Form(props) {
-//   // a function to call on the route to redirect to
-//   const navigate = useNavigate()
+  async function handleSubmit(event) {
+    event.preventDefault()
+    await addUser(inputUser)
+    const recentUser = await getAllUsers()
+    setUsers(() => recentUser)
+  }
 
-//   function handleSubmit(event) {
-//     // to prevent the browser form reloading
-//     event.preventDefault()
+  return (
+    <section className="formSection">
+      <div className="form">
+        <h2>Profiles!</h2>
+        <input
+          type="text"
+          name="name"
+          value={inputUser.name}
+          onChange={handleChange}
+          placeholder="Name"
+          required={true}
+        />
+        <input
+          type="text"
+          name="pronouns"
+          value={inputUser.pronouns}
+          onChange={handleChange}
+          placeholder="Pronouns"
+          required={true}
+        />
+        <input
+          type="text"
+          name="interests"
+          value={inputUser.interests}
+          onChange={handleChange}
+          placeholder="Interests"
+          required={true}
+        />
 
-//     const profileArray = event.currentTarget.elements.profile
+        <input
+          type="text"
+          name="zodiac"
+          value={inputUser.zodiac}
+          onChange={handleChange}
+          placeholder="Zodiac"
+          required={true}
+        />
+      </div>
 
-//     // let topChoiceIdx
-//     // let bottomChoiceIdx
+      <button onClick={handleSubmit}>Submit</button>
+    </section>
+  )
+}
 
-//     // for (let i = 0; i < topArray.length; i++) {
-//     //   if (topArray[i].checked === true) {
-//     //     topChoiceIdx = i
-//     //     break
-//     //   }
-//     // }
-
-//     // for (let i = 0; i < bottomArray.length; i++) {
-//     //   if (bottomArray[i].checked === true) {
-//     //     bottomChoiceIdx = i
-//     //     break
-//     //   }
-//     // }
-
-//     const name = event.currentTarget.elements.name.value
-//     const pronouns = event.currentTarget.elements.profile.value
-//     const interests = event.currentTarget.elements.interests.value
-//     const photo = event.currentTarget.elements.photo.value
-//     const zodiac = event.currentTarget.elements.zodiac.value
-
-//     const newProfile = {
-//       id: props.profiles.length + 1,
-//       name,
-//       pronouns,
-//       interests,
-//       photo,
-//       zodiac,
-//     }
-//     // add a new book to the state
-//     // props.setOutfits((state) => [...state, newOutfit])
-
-//     // to clear the form
-//     event.target.reset()
-//     navigate('/profiles')
-//   }
-
-//   // if(typeof props.outfits[field] == 'function') continue;
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <section className="formSection">
-//         <div className="form">
-//           <input type="text" name="name" placeholder="Name" required={true} />
-//           <input
-//             type="text"
-//             name="pronouns"
-//             placeholder="Pronouns"
-//             required={true}
-//           />
-//           <input
-//             type="text"
-//             name="interests"
-//             placeholder="Interests"
-//             required={true}
-//           />
-//           <input
-//             type="image"
-//             alt="photo"
-//             name="photo"
-//             placeholder="Upload Image"
-//             required={true}
-//           />
-//           <input
-//             type="text"
-//             name="zodiac sign"
-//             placeholder="Zodiac"
-//             required={true}
-//           />
-//         </div>
-//         {/*
-//         <div className="choiceDiv">
-//           {tops.map((top) => {
-//             return (
-//               <>
-//                 <div key={top.path}>
-//                   <input
-//                     type="checkbox"
-//                     id={top.id}
-//                     name="top"
-//                     value={top.path}
-//                   />
-//                   <label htmlFor={top.path}>
-//                     <img
-//                       className="imageChoice"
-//                       src={top.path}
-//                       alt={top.description}
-//                     />
-//                   </label>
-//                 </div>
-//               </>
-//             )
-//           })}
-//         </div> */}
-//         {/* <h2> Pick your Bottom!</h2>
-//         <div className="choiceDiv">
-//           {bottoms.map((bottom) => {
-//             // console.log(bottom.path)
-//             return (
-//               <>
-//                 <div key={top.path}>
-//                   <input
-//                     type="checkbox"
-//                     id={bottom.id}
-//                     name="bottom"
-//                     value={bottom.path}
-//                   />
-//                   <label htmlFor={bottom.path}>
-//                     <img
-//                       className="imageChoice"
-//                       src={bottom.path}
-//                       alt={bottom.description}
-//                     />
-//                   </label>
-//                 </div>
-//               </>
-//             )
-//           })}
-//         </div> */}
-//         {/*
-//         <Button>Submit</Button> */}
-//       </section>
-//     </form>
-//   )
-// }
-
-// export default Form
+export default Form
