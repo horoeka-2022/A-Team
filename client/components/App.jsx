@@ -25,42 +25,10 @@ function App() {
         />
       </header>
       <section className="formSection">
-        <div className="form">
-          <h2>Profiles!</h2>
-          <input type="text" name="name" placeholder="Name" required={true} />
-          <input
-            type="text"
-            name="pronouns"
-            placeholder="Pronouns"
-            required={true}
-          />
-          <input
-            type="text"
-            name="interests"
-            placeholder="Interests"
-            required={true}
-          />
-          <input
-            type="file"
-            alt="photo"
-            name="photo"
-            placeholder="Upload Image"
-            required={true}
-          />
-          <input
-            type="text"
-            name="zodiac sign"
-            placeholder="Zodiac"
-            required={true}
-          />
-        </div>
+        <Form setUsers={setUsers} />
         <div className="row">
           <List users={users} />
         </div>
-      </section>
-      <section className="formSection">
-        <Form setUsers={setUsers} />
-        <List users={users} />
       </section>
     </>
   )
