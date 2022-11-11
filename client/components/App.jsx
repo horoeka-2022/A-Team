@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '../apis/profiles'
 import List from './List'
-
-// import Form from './Form'
+import Form from './Form'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -58,6 +57,10 @@ function App() {
         <div className="row">
           <List users={users} />
         </div>
+      </section>
+      <section className="formSection">
+        <Form setUsers={setUsers} />
+        <List users={users} />
       </section>
     </>
   )
